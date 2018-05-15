@@ -26,7 +26,7 @@ describe('dev/build/lib/exec', () => {
     sinon.assert.calledWithExactly(onLogLine, sinon.match(`$ ${process.execPath}`));
 
     // log output of the process
-    sinon.assert.calledWithExactly(onLogLine, sinon.match(/debg\s+hi/));
+    sinon.assert.calledWithExactly(onLogLine, sinon.match(/debg.+hi/));
   });
 
   it('logs using level: option', async () => {
@@ -35,7 +35,7 @@ describe('dev/build/lib/exec', () => {
     });
 
     // log output of the process
-    sinon.assert.calledWithExactly(onLogLine, sinon.match(/info\s+hi/));
+    sinon.assert.calledWithExactly(onLogLine, sinon.match(/info.+hi/));
   });
 
   it('send the proc SIGKILL if it logs a line matching exitAfter regexp', async function () {
